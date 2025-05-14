@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Hospital, University, Hotel } from 'lucide-react';
@@ -10,19 +9,19 @@ const DemoSection: React.FC = () => {
         id: 1, 
         title: 'DEMO RS 01', 
         description: 'Fasilitas medis modern dengan layanan terintegrasi.',
-        iframeSrc: 'https://my.matterport.com/show?play=1&lang=en-US&m=WryTioVxqHq'
+        modelId: 'WryTioVxqHq'
       },
       { 
         id: 2, 
         title: 'DEMO RS 02', 
         description: 'Rumah sakit rujukan dengan pelayanan spesialistik lengkap.',
-        iframeSrc: 'https://my.matterport.com/show?play=1&lang=en-US&m=rzTuTyx4UJS'
+        modelId: 'rzTuTyx4UJS'
       },
       { 
         id: 3, 
         title: 'DEMO RS 03', 
         description: 'Rumah sakit premium dengan teknologi medis terkini.',
-        iframeSrc: 'https://my.matterport.com/show?play=1&lang=en-US&m=9dVTPc38sMT'
+        modelId: '9dVTPc38sMT'
       },
     ],
     'universitas': [
@@ -30,19 +29,19 @@ const DemoSection: React.FC = () => {
         id: 1, 
         title: 'DEMO Universitas 01', 
         description: 'Kampus terkemuka dengan fasilitas modern dan program studi terlengkap.',
-        iframeSrc: 'https://my.matterport.com/show?play=1&lang=en-US&m=V3kjsMcw58s'
+        modelId: 'V3kjsMcw58s'
       },
       { 
         id: 2, 
         title: 'DEMO Universitas 02', 
         description: 'Perguruan tinggi teknik dan sains terbaik di Indonesia.',
-        iframeSrc: 'https://my.matterport.com/show?play=1&lang=en-US&m=SWPkUCTe5Et'
+        modelId: 'SWPkUCTe5Et'
       },
       { 
         id: 3, 
         title: 'DEMO Universitas 03', 
         description: 'Universitas riset dengan sejarah pendidikan yang panjang.',
-        iframeSrc: 'https://my.matterport.com/show?play=1&lang=en-US&m=TVJY89Cv6jR'
+        modelId: 'TVJY89Cv6jR'
       },
     ],
     'hotel': [
@@ -50,19 +49,19 @@ const DemoSection: React.FC = () => {
         id: 1, 
         title: 'DEMO Hotel 1', 
         description: 'Hotel mewah dengan lokasi strategis di jantung kota Jakarta.',
-        iframeSrc: 'https://my.matterport.com/show?play=1&lang=en-US&m=dWUBA5Q63tp'
+        modelId: 'dWUBA5Q63tp'
       },
       { 
         id: 2, 
         title: 'DEMO Hotel 2', 
         description: 'Resort bintang 5 dengan pemandangan pantai yang memukau.',
-        iframeSrc: 'https://my.matterport.com/show?play=1&lang=en-US&m=zehpSwN1t5F'
+        modelId: 'zehpSwN1t5F'
       },
       { 
         id: 3, 
         title: 'DEMO Hotel 3', 
         description: 'Akomodasi mewah dengan sentuhan budaya Indonesia.',
-        iframeSrc: 'https://my.matterport.com/show?play=1&lang=en-US&m=QJXu7u151a8'
+        modelId: 'QJXu7u151a8'
       },
     ]
   };
@@ -103,17 +102,22 @@ const DemoSection: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {items.map(demo => (
                 <Card key={demo.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="h-48 bg-gray-200 relative">
-                    <iframe 
-                      src={demo.iframeSrc}
-                      width="100%"
-                      height="100%"
-                      frameBorder="0"
-                      allowFullScreen
-                      allow="autoplay; fullscreen; web-share; xr-spatial-tracking"
-                      title={demo.title}
-                      loading="lazy"
+                  <div className="relative h-48 bg-gray-200">
+                    <img
+                      src={`https://my.matterport.com/api/v1/player/models/${demo.modelId}/thumb`}
+                      alt={demo.title}
+                      className="w-full h-full object-cover"
                     />
+                    <button
+                      onClick={() =>
+                        window.open(
+                          `https://my.matterport.com/show?play=1&lang=en-US&m=${demo.modelId}`,
+                          '_blank'
+                        )
+                      }
+                      className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-base font-medium hover:bg-opacity-70 transition">
+                      Lihat Tur 3D
+                    </button>
                   </div>
                   <CardContent className="p-5">
                     <h4 className="text-lg font-semibold mb-2">{demo.title}</h4>
