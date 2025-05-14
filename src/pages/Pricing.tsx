@@ -69,12 +69,12 @@ const Pricing: React.FC = () => {
     annual: [
       {
         name: "Starter",
-        price: "Rp 1.200.000",
+        price: "Rp 5.200.000",
         period: "/bulan",
         description: "Untuk institusi kecil yang ingin memulai dengan tur virtual.",
         features: [
           "3 tur virtual aktif",
-          "Hingga 10 pengguna",
+          "Hingga 100 pengguna",
           "Resolusi standar (4K)",
           "Titik informasi dasar",
           "Integrasi website dasar",
@@ -85,12 +85,12 @@ const Pricing: React.FC = () => {
       },
       {
         name: "Professional",
-        price: "Rp 2.800.000",
+        price: "Rp 18.800.000",
         period: "/bulan",
         description: "Untuk institusi pendidikan dan fasilitas menengah.",
         features: [
           "10 tur virtual aktif",
-          "Hingga 50 pengguna",
+          "Hingga 1000 pengguna",
           "Resolusi tinggi (8K)",
           "Titik informasi multimedia",
           "Tag dan anotasi lanjutan",
